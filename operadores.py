@@ -16,7 +16,7 @@ def insertion(s, i, j):
     return t
 
 def two_opt(s, i, j):
-    """inverte a posição das casas de i até j ate n"""
+    """inverte a posição das casas de i até j"""
     t = s.copy()
     while i < j: 
         t[i] = s[j]

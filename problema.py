@@ -18,7 +18,7 @@ import os
 import random
 import sys
 import time
-
+import operadores
 
 def _num(v):
     """Devolve int quando o valor for inteiro, senao float."""
@@ -169,14 +169,11 @@ class ProblemaManutencao:
 
     @staticmethod
     def _aplicar(s, tipo, i, j):
-        novo = s[:]
         if tipo == "swap":
-            novo[i], novo[j] = novo[j], novo[i]
-        elif tipo == "insertion":
-            novo.insert(j, novo.pop(i))
-        else:  # 2opt: inverte o trecho i..j
-            novo[i:j + 1] = novo[i:j + 1][::-1]
-        return novo
+            return operadores.swap(s, i, j)
+        if tipo == "insertion":
+            return operadores.insertion(s, i, j)
+        return operadores.two_opt(s, i, j)
 
     # versoes publicas, para uso dos algoritmos
     def movimento_aleatorio(self, tipo=None):
@@ -407,3 +404,4 @@ if __name__ == "__main__":
         print(f"\nSalvo em {saida}")
     else:
         print(f"Nenhum manutencao_*.txt encontrado em '{pasta}'.")
+
