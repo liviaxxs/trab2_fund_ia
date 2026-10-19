@@ -152,7 +152,6 @@ def executar_ga(
         populacao = nova_populacao
 
         # Avalia todos os individuos da nova geracao.
-        # Inclusive o elite copiado: cada chamada conta.
         custos = [pb.h(ind) for ind in populacao]
 
         idx = min(range(len(custos)), key=lambda i: custos[i])
